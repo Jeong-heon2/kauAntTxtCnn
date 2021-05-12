@@ -313,7 +313,6 @@ with tf.device("/cpu:0"):
                 writer.add_summary(summaries, step)
 
 
-
         def batch_iter(data, batch_size, num_epochs, shuffle=True):
             """
             Generates a batch iterator for a dataset.
