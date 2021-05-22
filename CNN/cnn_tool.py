@@ -5,6 +5,7 @@ import re
 import tensorflow as tf
 import random
 import hangle
+import openpyxl
 
 
 ####################################################
@@ -59,12 +60,15 @@ def make_input(documents, max_document_length):
 # make output function                             #
 ####################################################
 def make_output(points, threshold):
-    results = np.zeros((len(points),2))
+    results = np.zeros((len(points),3))
     for idx, point in enumerate(points):
+        results[idx, int(point-1)] = 1
+        '''
         if point >= threshold:
             results[idx,1] = 1
         else:
             results[idx,0] = 1
+        '''
     return results
 
 ####################################################
@@ -85,7 +89,7 @@ def loading_rdata(data_path, eng=True, num=True, punc=False):
     # R에서 title과 contents만 csv로 저장한걸 불러와서 제목과 컨텐츠로 분리
     # write.csv(corpus, data_path, fileEncoding='utf-8', row.names=F)
     try:
-        corpus = pd.read_table(data_path, sep=",", engine='python', header=None, encoding="utf-8", names=['data', 'label'])
+        corpus = pd.read_table(data_path,  engine='python', header=None, encoding="utf-8", names=['data', 'label'])
         corpus.dropna(inplace=True)
     except Exception as e:
         print(e)
@@ -100,6 +104,26 @@ def loading_rdata(data_path, eng=True, num=True, punc=False):
         if idx % 100000 is 0:
             print('%d docs / %d save' % (idx, len(contents)))
     return contents, points
+####################################################
+# loading from excel                               #
+####################################################
+def loading_excel(data_path, eng=True, num=True, punc=False):
+    try:
+        corpus = pd.read_excel(data_path, usecols=['title','label'], engine='openpyxl')
+        corpus.dropna(inplace=True)
+    except Exception as e:
+        print(e)
+    corpus = np.array(corpus)
+    contents = []
+    points = []
+    for idx, doc in enumerate(corpus):
+        if isNumber(doc[0]) is False:
+            content = hangle.normalize(doc[0], english=eng, number=num, punctuation=punc)
+            contents.append(content)
+            points.append(doc[1])
+        if idx % 100000 is 0:
+            print('%d docs / %d save' % (idx, len(contents)))
+    return contents, points
 
 def isNumber(s):
   try:
@@ -107,3 +131,22 @@ def isNumber(s):
     return True
   except ValueError:
     return False
+
+def select_data(titles, labels):
+    size = len(titles)
+    lists = [[],[],[],[]]
+    for i in range(size):
+        if labels[i] == 4:
+            labels[i] = 3
+        lists[int(labels[i])].append(i)
+    lists[2] = lists[2] + lists[2]
+    cnt = len(lists[2])
+    lists[1] = random.sample(lists[1], cnt)
+    lists[3] = random.sample(lists[3], cnt)
+    res_titles = []
+    res_labels = []
+    for idx in range(1, 4):
+        for i in range(cnt):
+            res_titles.append(titles[lists[idx][i]])
+            res_labels.append(labels[lists[idx][i]])
+    return res_titles, res_labels

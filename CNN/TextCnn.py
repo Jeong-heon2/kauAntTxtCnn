@@ -5,6 +5,7 @@ from tensorflow import flags
 import tensorflow as tf
 import numpy as np
 import cnn_tool as tool
+from matplotlib import pyplot as plt
 import pandas as pd
 
 class TextCNN(object):
@@ -153,22 +154,32 @@ class TextCNN(object):
 # data_path = 'C:/Users/ratsgo/GoogleDrive/내폴더/textmining/data/watcha_movie_review_spacecorrected.csv'
 # data_path = os.getcwd() + "\\data5.csv"
 print(datetime.datetime.now().isoformat() + '  데이터로딩 시작')
-contents, points = tool.loading_rdata("data5.csv", eng=True, num=True, punc=False)
-
+#contents, points = tool.loading_rdata("data5.csv", eng=True, num=True, punc=False)
+contents, points = tool.loading_excel("DataSets/news_data_label1_set2.xlsx", eng=True, num=True, punc=False)
+contents2, points2 = tool.loading_excel("DataSets/news_data_label1_set3.xlsx", eng=True, num=True, punc=False)
+ccontents3, points3 = tool.loading_excel("DataSets/news_data_label1_set4.xlsx", eng=True, num=True, punc=False)
+contents = contents + contents2 + ccontents3
+points =  points + points2 + points3
 print(datetime.datetime.now().isoformat() + '  데이터로딩 완료')
+
 #contents = tool.cut(contents, cut=2)
 #print(datetime.datetime.now().isoformat() + '  데이터 cut 완료')
+
+#label 개수 동일하게 세팅
+contents, points = tool.select_data(contents, points)
+
 # tranform document to vector
-max_document_length = 3000
+max_document_length = 15
 x, vocabulary, vocab_size = tool.make_input(contents, max_document_length)
 print(datetime.datetime.now().isoformat() + '  사전단어수 : %s' % (vocab_size))
 y = tool.make_output(points, threshold=1)
 print(datetime.datetime.now().isoformat() + '  make_output 완료, train test 나누기 시작')
 # divide dataset into train/test set
 # 이거 없이 mix머시기 해서 던져줄것임
+'''
 x = pd.DataFrame(x)
 points = pd.DataFrame(points)
-x['label'] = points
+x['label'] = points'''
 x_train, x_test, y_train, y_test = tool.divide(x, y, train_prop=0.8)
 print(datetime.datetime.now().isoformat() + '  train, test 나누기 완료')
 # Model Hyperparameters
@@ -180,7 +191,7 @@ flags.DEFINE_float("l2_reg_lambda", 0.1, "L2 regularization lambda (default: 0.0
 
 # Training parameters
 flags.DEFINE_integer("batch_size", 64, "Batch Size (default: 64)")
-flags.DEFINE_integer("num_epochs", 50, "Number of training epochs (default: 200)")
+flags.DEFINE_integer("num_epochs", 40, "Number of training epochs (default: 200)")
 flags.DEFINE_integer("evaluate_every", 100, "Evaluate model on dev set after this many steps (default: 100)")
 flags.DEFINE_integer("checkpoint_every", 100, "Save model after this many steps (default: 100)")
 flags.DEFINE_integer("num_checkpoints", 5, "Number of checkpoints to store (default: 5)")
@@ -260,6 +271,10 @@ with tf.device("/cpu:0"):
             os.makedirs(checkpoint_dir)
         saver = tf.train.Saver(tf.global_variables(), max_to_keep=FLAGS.num_checkpoints)
 
+        # for plt
+        list_loss = []
+        list_acc = []
+
         # Initialize all variables
         try:
             init = tf.group(tf.global_variables_initializer(), tf.local_variables_initializer())
@@ -306,6 +321,9 @@ with tf.device("/cpu:0"):
             time_str = datetime.datetime.now().isoformat()
             print("{}: step {}, loss {:g}, acc {:g}, tp {:g}, fp {:g}, fn {:g}, recall {:g}, precision {:g}, f1 {:g}"
                   .format(time_str, step, loss, accuracy, tp, fp, fn, recall, precision, f1))
+
+            list_acc.append(accuracy)
+            list_loss.append(loss)
 
             tf.metrics.false_negatives.__init__()
             tf.metrics.false_positives.__init__()
@@ -357,3 +375,13 @@ with tf.device("/cpu:0"):
             if current_step % FLAGS.checkpoint_every == 0:
                 path = saver.save(sess, checkpoint_prefix, global_step=current_step)
                 print("Saved model checkpoint to {}\n".format(path))
+
+        plt.subplot(1, 2, 1)
+        plt.plot(list_loss)
+        plt.title('loss')
+
+        plt.subplot(1, 2, 2)
+        plt.plot(list_acc)
+        plt.title('accuracy')
+
+        plt.show()
