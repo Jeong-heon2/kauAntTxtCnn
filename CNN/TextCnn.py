@@ -107,8 +107,8 @@ class TextCNN(object):
         with tf.name_scope("accuracy"):
             correct_predictions = tf.equal(self.predictions, tf.argmax(self.input_y, 1))
             self.accuracy = tf.reduce_mean(tf.cast(correct_predictions, "float"), name="accuracy")
-        # for f1 score
 
+        # for f1 score
         with tf.name_scope("num_correct"):
             correct = tf.equal(self.predictions, tf.argmax(self.input_y, 1))
             self.num_correct = tf.reduce_sum(tf.cast(correct, "float"))
@@ -151,22 +151,31 @@ class TextCNN(object):
 
 
 # data loading
-# data_path = 'C:/Users/ratsgo/GoogleDrive/내폴더/textmining/data/watcha_movie_review_spacecorrected.csv'
-# data_path = os.getcwd() + "\\data5.csv"
 print(datetime.datetime.now().isoformat() + '  데이터로딩 시작')
-#contents, points = tool.loading_rdata("data5.csv", eng=True, num=True, punc=False)
+'''
 contents, points = tool.loading_excel("DataSets/news_data_label1_set2.xlsx", eng=True, num=True, punc=False)
+
 contents2, points2 = tool.loading_excel("DataSets/news_data_label1_set3.xlsx", eng=True, num=True, punc=False)
 ccontents3, points3 = tool.loading_excel("DataSets/news_data_label1_set4.xlsx", eng=True, num=True, punc=False)
-contents = contents + contents2 + ccontents3
-points =  points + points2 + points3
+ccontents4, points4 = tool.loading_excel("DataSets/news_data_label1_set5.xlsx", eng=True, num=True, punc=False)
+
+contents = contents + contents2 + ccontents3 + ccontents4
+
+points =  points + points2 + points3 + points4
+'''
+verify_data, verify_label = tool.loading_excel("DataSets/news_data_verify.xlsx", eng=True, num=True, punc=False)
+
+contents, points = tool.loading_excel("DataSets/news_data_label2_set1.xlsx", eng=True, num=True, punc=False)
 print(datetime.datetime.now().isoformat() + '  데이터로딩 완료')
 
 #contents = tool.cut(contents, cut=2)
 #print(datetime.datetime.now().isoformat() + '  데이터 cut 완료')
 
-#label 개수 동일하게 세팅
-contents, points = tool.select_data(contents, points)
+#label 개수 동일하게 세팅 (3으로 레이블링 된게 많음)
+contents, points = tool.select_data(contents , points )
+
+contents += verify_data
+points += verify_label
 
 # tranform document to vector
 max_document_length = 15
@@ -180,7 +189,7 @@ print(datetime.datetime.now().isoformat() + '  make_output 완료, train test �
 x = pd.DataFrame(x)
 points = pd.DataFrame(points)
 x['label'] = points'''
-x_train, x_test, y_train, y_test = tool.divide(x, y, train_prop=0.8)
+x_train, x_test, x_verify, y_train, y_test, y_verify = tool.divide(x, y, train_prop=0.8, verify_size=len(verify_label))
 print(datetime.datetime.now().isoformat() + '  train, test 나누기 완료')
 # Model Hyperparameters
 flags.DEFINE_integer("embedding_dim", 64, "Dimensionality of embedded vector (default: 128)")
@@ -330,6 +339,14 @@ with tf.device("/cpu:0"):
             if writer:
                 writer.add_summary(summaries, step)
 
+        def verify_model():
+            print("\nEvaluation:")
+            verify_point = 0
+
+            while verify_point + 100 < len(x_verify):
+                dev_step(x_verify[verify_point:verify_point + 100], y_verify[verify_point:verify_point + 100],
+                         None)
+                verify_point += 100
 
         def batch_iter(data, batch_size, num_epochs, shuffle=True):
             """
@@ -384,4 +401,8 @@ with tf.device("/cpu:0"):
         plt.plot(list_acc)
         plt.title('accuracy')
 
+        list_acc.clear()
+        verify_model()
+
+        print("verify acc : " + str(np.mean(list_acc)))
         plt.show()

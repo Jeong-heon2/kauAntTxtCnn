@@ -20,8 +20,8 @@ class ApiNaverNews(threading.Thread):
     def run(self):
         # HTTP요청 보내기
         r = requests.get(self.url, headers = self.headers)
-
         df = pd.DataFrame(r.json()['items'])
+
         columns = df.columns
         if 'title' in columns:
             df['title'] = df['title'].apply(lambda x: self.clean_html(x))

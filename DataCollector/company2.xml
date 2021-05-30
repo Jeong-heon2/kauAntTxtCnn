@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF8' ?>
+<Companies>
+    <type name="우주항공과국방">
+        <company>한화에어로스페이스</company>
+        <company>오르비텍</company>
+        <company>한화에어로스페이스</company>
+    </type>
+    <type name="조선">
+        <company>메디콕스</company>
+        <company>동방선기</company>
+        <company>HSD엔진</company>
+        <company>오리엔탈정공</company>
+        <company>에이치엘비</company>
+        <company>한국카본</company>
+    </type>
+    <type name="전기장비">
+        <company>보성파워텍</company>
+        <company>대한전선</company>
+        <company>현대일렉트릭</company>
+        <company>비츠로테크</company>
+        <company>대원전선</company>
+        <company>일진홀딩스</company>
+        <company>서전기전</company>
+    </type>
+    <type name="핸드셋">
+        <company>시노펙스</company>
+        <company>한일진공</company>
+        <company>엘컴텍</company>
+        <company>에스에이티</company>
+        <company>바이오로그디바이스</company>
+        <company>재영솔루텍</company>
+        <company>파인테크닉스</company>
+        <company>해성옵틱스</company>
+        <company>나노스</company>
+        <company>모베이스</company>
+        <company>앤디포스 </company>
+        <company>재영솔루텍</company>
+    </type>
+    <type name="통신장비">
+        <company>피피아이</company>
+        <company>텔콘RF제약</company>
+        <company>아이앤씨</company>
+        <company>다산네트웍스</company>
+        <company>아이즈비전</company>
+        <company>코맥스</company>
+        <company>쏠리드</company>
+        <company>아이크래프트</company>
+        <company>알엔투테크놀로지</company>
+        <company>오이솔루션</company>
+    </type>
+    <type name="교육서비스">
+        <company>NE능률</company>
+        <company>메가스터디교육</company>
+        <company>정상제이엘에스</company>
+        <company>청담러닝</company>
+        <company>씨엠에스에듀</company>
+        <company>디지털대성</company>
+    </type>
+    <type name="건설">
+        <company>코리아에스이</company>
+        <company>특수건설</company>
+        <company>서한</company>
+        <company>삼성엔지니어링</company>
+        <company>일성건설</company>
+        <company>서희건설</company>
+        <company>KCC건설</company>
+        <company>한진중공업</company>
+    </type>
+    <type name="가정용기기와용품">
+        <company>PN풍년</company>
+        <company>신일전자</company>
+        <company>하츠</company>
+        <company>위닉스</company>
+        <company>쿠쿠홀딩스</company>
+        <company>파세코</company>
+    </type>
+    <type name="생물공학">
+        <company>오리엔트바이오</company>
+        <company>팬젠</company>
+        <company>진원생명과학</company>
+        <company>제넥신</company>
+        <company>바이오리더스</company>
+        <company>강스템바이오텍</company>
+        <company>아미코젠</company>
+        <company>알테오젠</company>
+        <company>메디톡스</company>
+        <company>차바이오텍</company>
+        <company>케어젠</company>
+    </type>
+    <type name="에너지장비및서비스">
+        <company>SDN</company>
+        <company>파루</company>
+        <company>윌링스</company>
+    </type>
+    <type name="기계">
+        <company>코메론</company>
+        <company>대동기어</company>
+        <company>광림</company>
+        <company>비에이치아이</company>
+        <company>케이피에프</company>
+        <company>휴림로봇</company>
+        <company>큐로</company>
+        <company>두산인프라코어</company>
+        <company>대창솔루션</company>
+        <company>TYM</company>
+        <company>에이비프로바이오</company>
+        <company>태웅</company>
+    </type>
+    <type name="종이와목재">
+        <company>성창기업지주</company>
+        <company>무림P&amp;P</company>
+        <company>감성코퍼레이션</company>
+    </type>
+    <type name="상업서비스와공급품">
+        <company>자연과환경</company>
+        <company>아이마켓코리아</company>
+        <company>코엔텍</company>
+        <company>고려신용정보</company>
+        <company>KTcs</company>
+    </type>
+    <type name="기타금융">
+        <company>글로벌텍스프리</company>
+        <company>메이슨캐피탈</company>
+    </type>
+    <type name="문구류">
+        <company>삼성출판사</company>
+    </type>
+    <type name="디스플레이패널">
+        <company>비덴트</company>
+    </type>
+    <type name="다각화된통신서비스">
+        <company>세종텔레콤</company>
+    </type>
+    <type name="무선통신서비스">
+        <company>신라섬유</company>'
+        <company>LG유플러스</company>'
+    </type>
+    <type name="건강관리업체">
+        <company>신테카바이오</company>
+        <company>서울리거</company>
+    </type>
+    <type name="해운사">
+        <company>흥아해운</company>
+        <company>와이엔텍</company>
+        <company>바다로19호</company>
+        <company>하이골드12호</company>
+        <company>하이골드3호</company>
+    </type>
+    <type name="생명과학도구및서비스">
+        <company>레고켐바이오</company>
+        <company>나노엔텍</company>
+        <company>프리시젼바이오</company>
+        <company>마크로젠</company>
+        <company>파나진</company>
+        <company>얼라인드</company>
+        <company>바이오톡스텍</company>
+        <company>엔케이맥스</company>
+        <company>크리스탈지노믹스</company>
+        <company>노터스</company>
+        <company>피씨엘</company>
+        <company>바디텍메드</company>
+        <company>엔젠바이오</company>
+        <company>퀸타매트릭스</company>
+        <company>서흥</company>
+        <company>랩지노믹스</company>
+    </type>
+    <type name="전자제품">
+        <company>휴맥스홀딩스</company>
+        <company>TJ미디어</company>
+        <company>모바일어플라이언스</company>
+        <company>경남제약헬스케어</company>
+        <company>경인전자</company>
+        <company>알로이스</company>
+        <company>홈캐스트</company>
+    </type>
+    <type name="철강">
+        <company>한국선재</company>
+        <company>동국제강</company>
+        <company>동양철관</company>
+        <company>포스코엠텍</company>
+        <company>휴먼엔</company>
+        <company>KG동부제철</company>
+        <company>한국특강</company>
+    </type>
+    <type name="전자장비와기기">
+        <company>삼영에스앤씨</company>
+        <company>우리기술</company>
+        <company>동일기연</company>
+        <company>모비스</company>
+        <company>에스에이엠티</company>
+        <company>이그잭스</company>
+        <company>이트론</company>
+        <company>이랜시스</company>
+    </type>
+    <type name="복합기업">
+        <company>웅진</company>
+        <company>SK네트웍스</company>
+        <company>삼성물산</company>
+    </type>
+    <type name="제약">
+        <company>바이넥스</company>
+        <company>부광약품</company>
+        <company>테라젠이텍스</company>
+        <company>아미노로직스</company>
+        <company>화일약품</company>
+        <company>카이노스메드</company>
+        <company>삼성제약</company>
+    </type>
+    <type name="건축자재">
+        <company>센트럴바이오</company>
+        <company>홈센타홀딩스</company>
+        <company>일신석재</company>
+        <company>한솔홈데코</company>
+        <company>넥스트사이언스</company>
+        <company>벽산</company>
+        <company>성신양회</company>
+    </type>
+    <type name="디스플레이장비">
+        <company>한국컴퓨터</company>
+        <company>넥스트아이</company>
+        <company>클라우드에어</company>
+        <company>우리이앤엘</company>
+        <company>위지트</company>
+        <company>우리조명</company>
+        <company>선익시스템</company>
+    </type>
+    <type name="손해보험">
+        <company>롯데손해보험</company>
+        <company>한화손해보험</company>
+        <company>에이플러스에셋</company>
+        <company>코리안리</company>
+    </type>
+    <type name="식품">
+        <company>서울식품</company>
+        <company>이지홀딩스</company>
+        <company>한일사료</company>
+        <company>사조동아원</company>
+        <company>팜스토리</company>
+        <company>대한제당</company>
+        <company>풀무원</company>
+        <company>오리온</company>
+        <company>하림</company>
+        <company>빙그레</company>
+        <company>SPC삼립</company>
+    </type>
+    <type name="반도체와반도체장비">
+        <company>쌤씨엔에스</company>
+        <company>아이텍</company>
+        <company>엔투텍</company>
+        <company>DB하이텍</company>
+        <company>삼성전자</company>
+        <company>러셀</company>
+        <company>한국전자홀딩스</company>
+        <company>시그네틱스</company>
+    </type>
+    <type name="항공화물운송과물류">
+        <company>CJ제일제당</company>
+        <company>삼일</company>
+        <company>세방</company>
+        <company>한솔로지스틱스</company>
+        <company>현대글로비스</company>
+        <company>유수홀딩스</company>
+        <company>인터지스</company>
+        <company>국보</company>
+    </type>
+    <type name="판매업체">
+        <company>세우글로벌</company>
+        <company>슈펙스비앤피</company>
+        <company>대명소노시즌</company>
+    </type>
+    <type name="화학">
+        <company>자안바이오</company>
+        <company>KPX케미칼</company>
+        <company>한국석유</company>
+        <company>대정화금</company>
+        <company>와이엠티</company>
+        <company>한솔케미칼</company>
+        <company>OCI</company>
+        <company>태광산업</company>
+        <company>효성화학</company>
+        <company>미원에스씨</company>
+    </type>
+    <type name="자동차부품">
+        <company>인지컨트롤스</company>
+        <company>서연</company>
+        <company>대동금속</company>
+        <company>모토닉</company>
+        <company>인팩</company>
+        <company>세방전지</company>
+        <company>SNT홀딩스</company>
+        <company>센트랄모텍</company>
+        <company>만도</company>
+        <company>디티알오토모티브C</company>
+    </type>
+    <type name="기타">
+        <company>케어룸의료산업</company>
+        <company>폭스소프트</company>
+        <company>메디안디노스틱</company>
+        <company>휴럼</company>
+        <company>KINDEX 중국본토CSI300</company>
+    </type>
+    <type name="호텔,레스토랑,레저">
+        <company>신세계푸드</company>
+        <company>남화산업</company>
+        <company>참좋은여행</company>
+        <company>GKL</company>
+        <company>노랑풍선</company>
+    </type>
+    <type name="도로와철도운송">
+        <company>동양고속</company>
+    </type>
+    <type name="가구">
+        <company>오하임아이엔티</company>
+        <company>듀오백</company>
+        <company>시디즈</company>
+        <company>에넥스</company>
+        <company>코아스</company>
+    </type>
+    <type name="음료">
+        <company>MH에탄올</company>
+        <company>보해양조</company>
+        <company>흥국에프엔비</company>
+        <company>진로발효</company>
+        <company>국순당</company>
+        <company>무학</company>
+        <company>창해에탄올</company>
+        <company>하이트진로2우B</company>
+    </type>
+    <type name="섬유,의류,신발,호화품">
+        <company>BYC우</company>
+        <company>대한방직</company>
+        <company>제이에스코퍼레이션</company>
+        <company>제로투세븐</company>
+        <company>크리스에프앤씨</company>
+        <company>전방</company>
+        <company>경방</company>
+        <company>씨앤투스성진</company>
+        <company>일신방직</company>
+        <company>에스제이그룹</company>
+        <company>신원우</company>
+        <company>신영와코루</company>
+        <company>조광피혁</company>
+        <company>한섬</company>
+        <company>영원무역홀딩스</company>
+    </type>
+    <type name="소프트웨어">
+        <company>바이브컴퍼니</company>
+        <company>미디어젠</company>
+        <company>안랩</company>
+        <company>영림원소프트랩</company>
+        <company>알체라</company>
+    </type>
+    <type name="화장품">
+        <company>아이큐어</company>
+        <company>한국화장품</company>
+        <company>라파스</company>
+        <company>한국콜마홀딩스</company>
+        <company>네오팜</company>
+    </type>
+    <type name="양방향미디어와 서비스">
+        <company>캐리소프트</company>
+        <company>플리토</company>
+        <company>티사이언티픽</company>
+        <company>퓨쳐스트림네트웍스</company>
+        <company>줌인터넷</company>
+    </type>
+    <type name="가스유틸리티">
+        <company>E1</company>
+        <company>인천도시가스</company>
+        <company>경동도시가스</company>
+        <company>서울가스</company>
+        <company>대성에너지</company>
+    </type>
+    <type name="은행">
+        <company>신한지주</company>
+        <company>BNK금융지주</company>
+        <company>DGB금융지주</company>
+        <company>JB금융지주</company>
+        <company>상상인</company>
+    </type>
+    <type name="건강관리장비와용품">
+        <company>이오플로우</company>
+        <company>바이오다인</company>
+        <company>티앤엘</company>
+        <company>미코바이오메드</company>
+        <company>엘앤케이바이오</company>
+    </type>
+    <type name="부동산">
+        <company>ESR켄달스퀘어리츠</company>
+        <company>이리츠코크렙</company>
+        <company>NH프라임리츠</company>
+        <company>해성산업</company>
+        <company>코람코에너지리츠</company>
+    </type>
+    <type name="가정용품">
+        <company>블루베리 NFT</company>
+        <company>삼정펄프</company>
+        <company>메디앙스</company>
+    </type>
+</Companies>

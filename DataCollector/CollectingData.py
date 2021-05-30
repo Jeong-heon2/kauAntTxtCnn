@@ -1,6 +1,5 @@
 import pandas as pd
 from ApiNaverNews import ApiNaverNews
-import xlwt
 import openpyxl
 import xml.etree.ElementTree as elemTree
 import threading
@@ -22,7 +21,7 @@ class CommentedTreeBuilder(elemTree.TreeBuilder):
         self.data(data)
         self.end(elemTree.Comment)
 
-xml_path = 'DataCollection/DataSets/company.xml'
+xml_path = 'company2.xml'
 xml = open(xml_path, 'rt', encoding='UTF8')
 tree = elemTree.parse(xml, parser=elemTree.XMLParser(target= CommentedTreeBuilder()))
 
@@ -33,7 +32,7 @@ for type in tree.findall('./*'):
 
 
 encode_type = 'json'  # 출력 방식 json 또는 xml
-max_display = 100  # 출력 뉴스 수
+max_display = 100 # 출력 뉴스 수
 sort = 'date'  # 결과값의 정렬기준 시간순 date, 관련도 순 sim
 
 def naverNewsRequest():
